@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block conteudo %}
+
+<a href="/formUf" class="btn btn-default">Adicionar Novo</a>
+<hr>
+<ul>
+
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Sigla</th>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for uf in object_list %}
+      <tr>
+        
+    <td><a href="/editar/{{uf.sigla}}">{{uf.sigla}}</a></td>
+    <td>{{uf.nome}}</td>
+    <td>
+        <a href="/editar/{{uf.sigla}}" class="btn btn-success btn-sm">Editar</a>
+        <a href="/excluir/{{uf.sigla}}" class="btn btn-danger btn-sm">Excluir</a>
+    </td>
+    
+      </tr>
+    {% endfor %}  
+    </tbody>
+  </table>
+    
+</ul>
+{% endblock %}
