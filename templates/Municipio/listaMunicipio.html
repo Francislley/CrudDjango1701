@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block conteudo %}
+
+<a href="/formMunicipio" class="btn btn-default">Adicionar Novo</a>
+<hr>
+<ul>
+
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Municipio</th>
+        <th>UF</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for mun in object_list %}
+      <tr>
+        
+    <td><a href="/editarMunicipio/{{mun.id}}">{{mun.nome}}</a></td>
+    <td>{{mun.uf.nome}}</td>
+    <td>
+        <a href="/editarMunicipio/{{mun.id}}" class="btn btn-success btn-sm">Editar</a>
+        <a href="/excluirMunicipio/{{mun.id}}" class="btn btn-danger btn-sm">Excluir</a>
+    </td>
+    
+      </tr>
+    {% endfor %}  
+    </tbody>
+  </table>
+    
+</ul>
+{% endblock %}

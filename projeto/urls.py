@@ -29,5 +29,10 @@ urlpatterns = [
     url(r'^listaUf', views.UfListView.as_view(template_name="Uf/listaUf.html")),
     url(r'^editar/(?P<pk>[\w-]+)$', views.UfEdita.as_view(template_name="Uf/formUf.html")),
     url(r'^excluir/(?P<pk>[\w-]+)$', views.UfDelete.as_view()),
+    #CRUD Municipio
+    url(r'^formMunicipio$', views.MunicipioCreate.as_view(template_name="Uf/formUf.html")),
+    url(r'^listaMunicipio', views.MunicipioListView.as_view(template_name="Municipio/listaMunicipio.html")),
+    url(r'^editarMunicipio/(?P<pk>[\w-]+)$', views.MunicipioEdita.as_view(template_name="Uf/formUf.html")),
+    url(r'^excluirMunicipio/(?P<pk>[\w-]+)$', views.MunicipioDelete.as_view()),
     
 ]

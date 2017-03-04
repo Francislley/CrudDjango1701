@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.views import View
-from django.views.generic.edit import FormView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, FormView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from aplicativo.forms import *
-from aplicativo.models import Uf
-from django.contrib.messages.views import SuccessMessageMixin
+from aplicativo.models import Uf, Municipio
+from django.shortcuts import get_object_or_404
 #CRUD UF
 class FormUfView(FormView):
 	template_name='Uf/formUf.html'
@@ -28,3 +28,19 @@ class UfDelete(DeleteView):
 		return self.post(request, *args, **kwargs)
 
 #CRUD MUNICIPIO
+#Using create just for see whats happening
+class MunicipioCreate(CreateView):
+	model = Municipio
+	fields = ['nome', 'uf']
+	success_url = "/listaMunicipio"
+class MunicipioListView(ListView):
+	model = Municipio
+class MunicipioEdita(UpdateView):
+    model = Municipio
+    fields = ['nome','uf']
+    success_url = '/listaMunicipio'
+class MunicipioDelete(DeleteView):
+	model = Municipio
+	success_url = '/listaMunicipio'
+	def get(self, request, *args, **kwargs):
+		return self.post(request, *args, **kwargs)
