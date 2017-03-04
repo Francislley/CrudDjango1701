@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block conteudo%}
+  {%load bootstrap%}
+  <form class="form-horizontal" method="POST" action=""> {% csrf_token%}
+  {{form | bootstrap}}
+  <input type="submit" name="submeter" class="btn btn-default" value="salvar"></input>
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block conteudo %}
+
+<a href="/formTipoGestao" class="btn btn-default">Adicionar Novo</a>
+<hr>
+<ul>
+
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for tipo in object_list %}
+      <tr>
+        
+    <td><a href="/editarTipoGestao/{{tipo.id}}">{{tipo.id}}</a></td>
+    <td>{{tipo.nome}}</td>
+    <td>
+        <a href="/editarTipoGestao/{{tipo.id}}" class="btn btn-success btn-sm">Editar</a>
+        <a href="/excluirTipoGestao/{{tipo.id}}" class="btn btn-danger btn-sm">Excluir</a>
+    </td>
+    
+      </tr>
+    {% endfor %}  
+    </tbody>
+  </table>
+    
+</ul>
+{% endblock %}

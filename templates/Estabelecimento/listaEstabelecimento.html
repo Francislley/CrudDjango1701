@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block conteudo %}
+
+<a href="/formEstabelecimento" class="btn btn-default">Adicionar Novo</a>
+<hr>
+<ul>
+
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Cnes</th>
+        <th>Nome</th>
+        <th>Razao Social</th>
+        <th>Municipio</th>
+        <th>Tipo Gestão</th>
+        <th>Atende Sus</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for estabelecimento in object_list %}
+      <tr>
+        
+    <td><a href="/editarEstabelecimento/{{estabelecimento.cnes}}">{{estabelecimento.cnes}}</a></td>
+    <td>{{estabelecimento.nome}}</td>
+    <td>{{estabelecimento.razaoSocial}}</td>
+    <td>{{estabelecimento.municipio.nome}}</td>
+    <td>{{estabelecimento.tipoGestao.nome}}</td>
+    <td>{{estabelecimento.atendeSus}}</td>
+    <td>
+        <a href="/editarEstabelecimento/{{estabelecimento.cnes}}" class="btn btn-success btn-sm">Editar</a>
+        <a href="/excluirEstabelecimento/{{estabelecimento.cnes}}" class="btn btn-danger btn-sm">Excluir</a>
+    </td>
+    
+      </tr>
+    {% endfor %}  
+    </tbody>
+  </table>
+    
+</ul>
+{% endblock %}

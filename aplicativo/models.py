@@ -15,7 +15,7 @@ class TipoGestao(models.Model):
 class Estabelecimento(models.Model):
 	simNao = (('S', 'Sim'),('N', 'Não'))
 	cnes = models.CharField(max_length=7, primary_key=True)
-	home = models.CharField(max_length=60)
+	nome = models.CharField(max_length=60)
 	razaoSocial = models.CharField(max_length=100)
 	municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE)	
 	tipoGestao = models.ForeignKey(TipoGestao, on_delete=models.CASCADE)
