@@ -5,13 +5,20 @@ from django.db import models
 class Uf(models.Model):
 	sigla = models.CharField(max_length=2, primary_key=True)
 	nome = models.CharField(max_length=60)
+	def __str__(self):
+		return self.nome
+
 
 class Municipio(models.Model):
 	uf = models.ForeignKey(Uf, on_delete=models.CASCADE)	
 	nome = models.CharField(max_length=60)
+	def __str__(self):
+		return self.nome
 
 class TipoGestao(models.Model):
 	nome = models.CharField(max_length=60)
+	def __str__(self):
+		return self.nome
 class Estabelecimento(models.Model):
 	simNao = (('S', 'Sim'),('N', 'Não'))
 	cnes = models.CharField(max_length=7, primary_key=True)
